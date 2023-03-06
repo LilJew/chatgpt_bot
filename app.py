@@ -26,7 +26,8 @@ def chat(message):
     ).choices[0].text
 
     # Send the response to the user
-    bot.reply_to(message, response)
+    if f'@{bot.get_me().username}' in message.text:
+        bot.reply_to(message, response)
 
 # Start the Bot
 bot.polling()
