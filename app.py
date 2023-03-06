@@ -1,16 +1,20 @@
 import logging
+import os
 import telebot
 import openai
+import settings
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
 # Set up the OpenAI API client
-openai.api_key = "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"
+
+
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Create the TeleBot client
-bot = telebot.TeleBot("5562426530:AAE09FoIxWIWRbGdL4ToJgDeqKh0YTY6esA")
+bot = telebot.TeleBot(os.environ["TG_TOKEN"])
 
 
 
